@@ -22,7 +22,7 @@ userRouter.post("/login", async (req, res) => {
   //logic
   const { email, pass } = req.body;
   try {
-    const user = await UserModel.findOne({ email }); 
+    const user = await UserModel.findOne({ email });
     if (user) {
       bcrypt.compare(pass, user.pass, (err, result) => {
         if (result) {
